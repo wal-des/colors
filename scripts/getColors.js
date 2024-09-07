@@ -1,5 +1,5 @@
 const tableName = 'Paint';
-const viewName = 'Unused in color schemes';
+const viewName = 'All';
 
 async function getColorData() {
     console.log("Start fetch data records");
