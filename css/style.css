@@ -154,7 +154,7 @@ h2:has(+ p) {
 .scale-list,
 .color-details {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: var(--space-s);
 }
 
@@ -166,6 +166,8 @@ h2:has(+ p) {
   box-shadow: var(--card-shadow);
   height: fit-content;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
   }
