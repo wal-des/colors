@@ -21,7 +21,7 @@
                         toxicicity: fields['Toxicicity'],
                         toxicicityNote: fields['Toxicity note'],
                         opacity: fields.Transparency,
-                        swatchImage: 'images/pigments/'.concat(fields['Code']).concat('.png'),
+                        swatchImage: fields.Swatch[0].url,
                         usedIn: fields['Used in'],
                         usedInMaterial: fields['Used in Material'],
                     };

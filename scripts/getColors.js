@@ -33,7 +33,7 @@ async function getColorData() {
                 staining: fields.Staining,
                 granulating: fields.Granulating,
                 granulation: fields.Granulation,
-                swatchImage: 'images/colors/'.concat(fields['Color Id']).concat('.jpg'),
+                swatchImage: fields.Swatch[0].url,
                 obsolete: fields.Obsolete,
             };
             return mappedData;

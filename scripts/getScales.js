@@ -17,13 +17,13 @@ async function getScales() {
 
                 startColorName: fields['Start color display name'],
                 startColorPigments: fields['Start color pigments'],
-                startColorImage: 'images/colors/'.concat(fields['Start color code']).concat('.jpg'),
+                startColorImage: fields['Start color swatch'][0].url,
 
                 endColorName: fields['End color display name'],
                 endColorPigments: fields['End color pigments'],
-                endColorImage: 'images/colors/'.concat(fields['End color code']).concat('.jpg'),
+                endColorImage: fields['End color swatch'][0].url,
 
-                scaleImage: 'images/color-scales/'.concat(fields['Scale name']).concat('.jpg'),
+                scaleImage: fields.ScaleImage[0].url,
 
             };
 

@@ -18,19 +18,19 @@ async function getSchemes() {
                 yellowOption: fields['Yellow option'],
                 yellowName: fields['Yellow Display Name'],
                 yellowPigment: fields['Yellow Pigments'],
-                yellowImage: 'images/colors/'.concat(fields['Yellow color code']).concat('.jpg'),
+                yellowImage: fields['Yellow Swatch'][0].url,
 
                 redOption: fields['Red option'],
                 redName: fields['Red Display Name'],
                 redPigment: fields['Red Pigments'],
-                redImage: 'images/colors/'.concat(fields['Red color code']).concat('.jpg'),
+                redImage: fields['Red Swatch'][0].url,
 
                 blueOption: fields['Blue option'],
                 blueName: fields['Blue Display Name'],
                 bluePigment: fields['Blue Pigments'],
-                blueImage: 'images/colors/'.concat(fields['Blue color code']).concat('.jpg'),
+                blueImage: fields['Blue Swatch'][0].url,
 
-                triadImage: 'images/colors/'.concat(fields['TriadImage']).concat('.jpg'),
+                triadImage: fields['TriadImage'][0].url,
 
             };
             return mappedData;
@@ -44,23 +44,26 @@ async function getSchemes() {
             for (var i = 0; i < allRecords.length; i++) {
 
                 document.querySelector("#triad-list").innerHTML += `
-                        <div class="triad-card">
-                            <div class="triad-color">
-                                <img src=${allRecords[i].yellowImage} alt="" class="triad-color-image">
-                                <div class="triad-color-text-container">
-                                    <p class="triad-color-name">${allRecords[i].yellowName || ''}</p>
+                        <div class="triad-outer-card">
+                            <img src=${allRecords[i].triadImage} alt="" class="triad-image">
+                            <div class="triad-card">
+                                <div class="triad-color">
+                                    <img src=${allRecords[i].yellowImage} alt="" class="triad-color-image">
+                                    <div class="triad-color-text-container">
+                                        <p class="triad-color-name">${allRecords[i].yellowName || ''}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="triad-color">
-                                <img src=${allRecords[i].redImage} alt="" class="triad-color-image">
-                                <div class="triad-color-text-container">
-                                    <p class="triad-color-name">${allRecords[i].redName || ''}</p>
+                                <div class="triad-color">
+                                    <img src=${allRecords[i].redImage} alt="" class="triad-color-image">
+                                    <div class="triad-color-text-container">
+                                        <p class="triad-color-name">${allRecords[i].redName || ''}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="triad-color">
-                                <img src=${allRecords[i].blueImage} alt="" class="triad-color-image">
-                                <div class="triad-color-text-container">
-                                    <p class="triad-color-name">${allRecords[i].blueName || ''}</p>
+                                <div class="triad-color">
+                                    <img src=${allRecords[i].blueImage} alt="" class="triad-color-image">
+                                    <div class="triad-color-text-container">
+                                        <p class="triad-color-name">${allRecords[i].blueName || ''}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>`;
