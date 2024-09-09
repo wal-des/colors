@@ -360,6 +360,7 @@ h2:has(+ p) {
 
 /* Start page*/
 #hero {
+  overflow-y: scroll;
 }
 
 #hero-grid {
