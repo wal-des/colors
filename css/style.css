@@ -70,6 +70,8 @@
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -82,19 +84,29 @@ html {
 }
 
 body {
-  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-main {
+/* main {
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 section {
   margin: var(--space-s);
   padding-top: var(--space-l);
+}
+
+.color-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 img {
@@ -153,9 +165,14 @@ h2:has(+ p) {
 .triad-list,
 .scale-list,
 .color-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: var(--space-s);
+  flex: 1;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  padding-bottom: var(--space-m);
 }
 
 .swatch-card,
@@ -165,9 +182,12 @@ h2:has(+ p) {
   border-radius: var(--card-corner-radius);
   box-shadow: var(--card-shadow);
   height: fit-content;
+  flex: 1;
+  min-width: 300px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  scroll-snap-align: start;
 
   &:hover {
   }
