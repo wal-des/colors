@@ -134,6 +134,10 @@ h1 {
   margin-bottom: var(--space-l);
 }
 
+.mobile-header > h1 {
+  margin-bottom: 0;
+}
+
 h2 {
   font-family: var(--ff-header);
   font-size: var(--font-size-l);
@@ -346,6 +350,14 @@ h2:has(+ p) {
   cursor: pointer;
 }
 
+.desktop-header {
+  display: block;
+}
+
+.mobile-header {
+  display: none;
+}
+
 /* Start page*/
 #hero {
 }
@@ -388,6 +400,10 @@ h2:has(+ p) {
 
 /*Media query*/
 @media (max-width: 768px) {
+  section {
+    padding-top: var(--spacex-s);
+  }
+
   #header {
     justify-content: space-between;
   }
@@ -418,6 +434,14 @@ h2:has(+ p) {
 
   .mobile {
     display: flex;
+  }
+
+  .desktop-header {
+    display: none;
+  }
+
+  .mobile-header {
+    display: block;
   }
 
   #close {
