@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>List of pigments</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" href="">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="icon" href="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
 
-<body>
+  <body>
     <section id="header">
-        <div>
-            <ul id="navbar">
-                <li><a href="index.html">Start</a></li>
-                <li><a href="colors.html">Colors</a></li>
-                <li><a class="active" href="pigments.html">Pigments</a></li>
-                <li><a href="colorSchemes.html">Schemes</a></li>
-                <li><a href="colorScales.html">Scales</a></li>
-                <div class="mobile"><i id="close" class="material-icons" style="font-size:32px;">close</i></div>
-            </ul>
-        </div>
-        <div class="mobile">
-            <i id="nav-button" class="material-icons" style="font-size:32px;">menu</i>
-        </div>
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="colors.html">Colors</a></li>
+          <li><a class="active" href="pigments.html">Pigments</a></li>
+          <li><a href="colorSchemes.html">Schemes</a></li>
+          <li><a href="colorScales.html">Scales</a></li>
+          <div class="mobile">
+            <i id="close" class="material-icons" style="font-size: 32px"
+              >close</i
+            >
+          </div>
+        </ul>
+      </div>
+      <div class="mobile">
+        <i id="nav-button" class="material-icons" style="font-size: 32px"
+          >menu</i
+        >
+      </div>
     </section>
 
-    <section>
+    <section class="color-content">
+      <h1>Pigments</h1>
 
-        <h1>Pigments</h1>
-
-        <div class="swatch-list" id="swatch-list"></div>
-
+      <div class="swatch-list" id="swatch-list"></div>
     </section>
-
 
     <script type="text/javascript" src="scripts/api-keys.js"></script>
     <script type="text/javascript" src="scripts/getPigments.js"></script>
     <script type="text/javascript" src="scripts/menu-control.js"></script>
-
-
-</body></html>
+  </body>
+</html>
