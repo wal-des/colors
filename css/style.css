@@ -12,6 +12,7 @@
   --text-secondary: #b5b5bd;
   --text-tag: #181818;
   --text-accent: #1ceac5;
+  --text-warning: #ffb8c5;
 
   /*border radius*/
   --btn-corner-radius: 40px;
@@ -239,8 +240,94 @@ h2:has(+ p) {
   display: flex;
 }
 
-.color-information-icon {
+.color-information-item:has(.color-information-tag:empty) {
+  display: none;
 }
+
+.color-information-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: var(--space-3xs);
+}
+
+/* Opacity */
+.transparent {
+  background-image: url("../icons/ratings/opacity-transparent.svg");
+}
+
+.semi-transparent {
+  background-image: url("../icons/ratings/opacity-semi-transparent.svg");
+}
+
+.semi-opaque {
+  background-image: url("../icons/ratings/opacity-semi-opaque.svg");
+}
+
+.opaque {
+  background-image: url("../icons/ratings/opacity-opaque.svg");
+}
+
+/* Staining */
+.non-staining {
+  background-image: url("../icons/ratings/staining-none.svg");
+}
+
+.low-staining {
+  background-image: url("../icons/ratings/staining-low.svg");
+}
+
+.medium-staining {
+  background-image: url("../icons/ratings/staining-medium.svg");
+}
+.high-staining {
+  background-image: url("../icons/ratings/staining-high.svg");
+}
+
+/* Granulation */
+.no.granulation {
+  background-image: url("../icons/ratings/granulation-none.svg");
+}
+
+.medium.granulation {
+  background-image: url("../icons/ratings/granulation-medium.svg");
+}
+
+.heavy.granulation {
+  background-image: url("../icons/ratings/granulation-high.svg");
+}
+
+/* Lightfastness */
+.fugitive.lightfastness {
+  background-image: url("../icons/ratings/lightfastness-fugitive.svg");
+}
+
+.fair.lightfastness {
+  background-image: url("../icons/ratings/lightfastness-fair.svg");
+}
+
+.good.lightfastness {
+  background-image: url("../icons/ratings/lightfastness-good.svg");
+}
+
+.very.good.lightfastness {
+  background-image: url("../icons/ratings/lightfastness-very-good.svg");
+}
+
+.excellent.lightfastness {
+  background-image: url("../icons/ratings/lightfastness-excellent.svg");
+}
+
+/* Obsolete */
+
+.obsolete > i {
+  background-image: url("../icons/functions/discontinued.svg");
+}
+
+.obsolete > p {
+  color: var(--text-warning);
+}
+
+/* ---- */
 
 .pigment-card-text-column {
   display: flex;

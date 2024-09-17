@@ -59,11 +59,10 @@ async function getColorData() {
                         <p class="product-line">${allRecords[i].productLine || ''}</p>
                     </div>
                         <div class="color-information-list">
-                        if(${allRecords[i].opacity} !==''){
                             <div class="color-information-item" id="opacity">
                                 <i class="color-information-icon ${allRecords[i].opacity || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].opacity || ''}</p>
-                            </div>}
+                            </div>
                             <div class="color-information-item" id="staining">
                                 <i class="color-information-icon ${allRecords[i].staining || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].staining || ''}</p>
@@ -76,6 +75,10 @@ async function getColorData() {
                                 <i class="color-information-icon ${allRecords[i].lightfastness || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].lightfastness || ''}</p>
                             </div>
+                        </div>
+                        <div class="color-information-item obsolete" id="obsolete">
+                            <i class="color-information-icon ${allRecords[i].obsolete || ''}"></i>
+                            <p class="color-information-tag">${(allRecords[i].obsolete && "Not in collection anymore")|| ''}</p>
                         </div>
                 </div>
             </div>`;
