@@ -50,7 +50,7 @@ async function getColorData() {
                 <div class="swatch-card" id="${allRecords[i].id}" tabindex="0" onclick="openDetails()">
                 <img src=${allRecords[i].swatchImage} alt="" class="color-image">
                 <div class="card-text">
-                    <div class="card-text-row">
+                    <div class="card-header-row">
                         <h2 class="color-name">${allRecords[i].colorName || ''}</h2>
                         <p class="color-number">${allRecords[i].colorCode || ''}</p>
                     </div>
@@ -58,27 +58,28 @@ async function getColorData() {
                         <p class="make-name">${allRecords[i].brand || ''}</p>
                         <p class="product-line">${allRecords[i].productLine || ''}</p>
                     </div>
-                    <div class="color-details-card" id="${allRecords[i].id}">
-
                         <div class="color-information-list">
                             <div class="color-information-item" id="opacity">
-                                <i class="material-icons color-information-icon"></i>
+                                <i class="color-information-icon ${allRecords[i].opacity || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].opacity || ''}</p>
                             </div>
                             <div class="color-information-item" id="staining">
-                                <i class="material-icons color-information-icon"></i>
+                                <i class="color-information-icon ${allRecords[i].staining || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].staining || ''}</p>
                             </div>
                             <div class="color-information-item" id="granulation">
-                                <i class="material-icons color-information-icon"></i>
+                                <i class="color-information-icon ${allRecords[i].granulation || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].granulation || ''}</p>
                             </div>
                             <div class="color-information-item" id="lightfastness">
-                                <i class="material-icons color-information-icon"></i>
+                                <i class="color-information-icon ${allRecords[i].lightfastness || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].lightfastness || ''}</p>
                             </div>
                         </div>
-                    </div>
+                        <div class="color-information-item obsolete" id="obsolete">
+                            <i class="color-information-icon ${allRecords[i].obsolete || ''}"></i>
+                            <p class="color-information-tag">${(allRecords[i].obsolete && "Not in collection anymore")|| ''}</p>
+                        </div>
                 </div>
             </div>`;
 
