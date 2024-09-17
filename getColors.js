@@ -59,20 +59,21 @@ async function getColorData() {
                         <p class="product-line">${allRecords[i].productLine || ''}</p>
                     </div>
                         <div class="color-information-list">
+                        if(${allRecords[i].opacity} !==''){
                             <div class="color-information-item" id="opacity">
-                                <i class="material-icons color-information-icon"></i>
+                                <i class="color-information-icon ${allRecords[i].opacity || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].opacity || ''}</p>
-                            </div>
+                            </div>}
                             <div class="color-information-item" id="staining">
-                                <i class="material-icons color-information-icon"></i>
+                                <i class="color-information-icon ${allRecords[i].staining || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].staining || ''}</p>
                             </div>
                             <div class="color-information-item" id="granulation">
-                                <i class="material-icons color-information-icon"></i>
+                                <i class="color-information-icon ${allRecords[i].granulation || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].granulation || ''}</p>
                             </div>
                             <div class="color-information-item" id="lightfastness">
-                                <i class="material-icons color-information-icon"></i>
+                                <i class="color-information-icon ${allRecords[i].lightfastness || ''}"></i>
                                 <p class="color-information-tag">${allRecords[i].lightfastness || ''}</p>
                             </div>
                         </div>
