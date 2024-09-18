@@ -162,7 +162,7 @@ h2:has(+ p) {
 .material-variant,
 .color-information-tag {
   font-size: var(--fs-sm);
-  color: var(--clr-text-secondary);
+  color: var(--clr-text-primary);
 }
 
 .color-number {
