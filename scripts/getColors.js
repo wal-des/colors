@@ -25,7 +25,7 @@ async function getColorData() {
                 materialVariant: fields.Variant,
                 brand: fields['Brand Display Name'],
                 productLine: fields['Product line'],
-                pigments: fields['Pigments link'],
+                pigments: fields['Pigment Code'],
                 singlePigment: fields['Single pigment'],
                 series: fields.Series,
                 lightfastness: fields['Lightfastness unified'],
@@ -58,28 +58,31 @@ async function getColorData() {
                         <p class="make-name">${allRecords[i].brand || ''}</p>
                         <p class="product-line">${allRecords[i].productLine || ''}</p>
                     </div>
-                        <div class="color-information-list">
-                            <div class="color-information-item" id="opacity">
-                                <i class="color-information-icon ${allRecords[i].opacity || ''}"></i>
-                                <p class="color-information-tag">${allRecords[i].opacity || ''}</p>
-                            </div>
-                            <div class="color-information-item" id="staining">
-                                <i class="color-information-icon ${allRecords[i].staining || ''}"></i>
-                                <p class="color-information-tag">${allRecords[i].staining || ''}</p>
-                            </div>
-                            <div class="color-information-item" id="granulation">
-                                <i class="color-information-icon ${allRecords[i].granulation || ''}"></i>
-                                <p class="color-information-tag">${allRecords[i].granulation || ''}</p>
-                            </div>
-                            <div class="color-information-item" id="lightfastness">
-                                <i class="color-information-icon ${allRecords[i].lightfastness || ''}"></i>
-                                <p class="color-information-tag">${allRecords[i].lightfastness || ''}</p>
-                            </div>
+                    <div class="card-text-row">
+                        <p class="color-information-tag">${allRecords[i].pigments || ''}</p>
+                    </div>
+                    <div class="color-information-list">
+                        <div class="color-information-item" id="opacity">
+                            <i class="color-information-icon ${allRecords[i].opacity || ''}"></i>
+                            <p class="color-information-tag">${allRecords[i].opacity || ''}</p>
                         </div>
-                        <div class="color-information-item obsolete" id="obsolete">
-                            <i class="color-information-icon ${allRecords[i].obsolete || ''}"></i>
-                            <p class="color-information-tag">${(allRecords[i].obsolete && "Not in collection anymore")|| ''}</p>
+                        <div class="color-information-item" id="staining">
+                            <i class="color-information-icon ${allRecords[i].staining || ''}"></i>
+                            <p class="color-information-tag">${allRecords[i].staining || ''}</p>
                         </div>
+                        <div class="color-information-item" id="granulation">
+                            <i class="color-information-icon ${allRecords[i].granulation || ''}"></i>
+                            <p class="color-information-tag">${allRecords[i].granulation || ''}</p>
+                        </div>
+                        <div class="color-information-item" id="lightfastness">
+                            <i class="color-information-icon ${allRecords[i].lightfastness || ''}"></i>
+                            <p class="color-information-tag">${allRecords[i].lightfastness || ''}</p>
+                        </div>
+                    </div>
+                    <div class="color-information-item obsolete" id="obsolete">
+                        <i class="color-information-icon ${allRecords[i].obsolete || ''}"></i>
+                        <p class="color-information-tag">${(allRecords[i].obsolete && "Not in collection anymore")|| ''}</p>
+                    </div>
                 </div>
             </div>`;
 

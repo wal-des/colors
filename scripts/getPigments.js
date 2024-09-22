@@ -39,11 +39,21 @@
                         <div class="swatch-card">
                             <img src=${allRecords[i].swatchImage} alt="" class="pigment-image">
                                 <div class="card-text">
-                                <div class="pigment-card-text-column">
-                                    <h2 class="color-name">${allRecords[i].pigmentName || ''}</h2>
-                                    <p class="color-number">${allRecords[i].pigmentCode || ''}</p>
+                                    <div class="pigment-card-text-column">
+                                        <h2 class="color-name">${allRecords[i].pigmentName || ''}</h2>
+                                        <p class="color-number">${allRecords[i].pigmentCode || ''}</p>
+                                    </div>
+                                    <div class="color-information-list">
+                                        <div class="color-information-item" id="opacity">
+                                            <i class="color-information-icon pigment-opacity ${allRecords[i].opacity || ''}"></i>
+                                            <p class="color-information-tag">${allRecords[i].opacity || ''}</p>
+                                        </div>
+                                        <div class="color-information-item" id="toxicicity">
+                                            <i class="color-information-icon ${allRecords[i].toxicicity.slice(0,1).toLowerCase() || ''}"></i>
+                                            <p class="color-information-tag">${allRecords[i].toxicicity || ''}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
                         </div>`;
                     }
                 }
