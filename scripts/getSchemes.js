@@ -45,22 +45,22 @@ async function getSchemes() {
 
                 document.querySelector("#triad-list").innerHTML += `
                         <div class="triad-outer-card">
-                            <img src=${allRecords[i].triadImage} alt="" class="triad-image" onerror="this.src='../images/no-scheme.svg';">
+                            <img src=${allRecords[i].triadImage} alt="" class="triad-image" onerror="this.src='../images-default/no-scheme.svg';">
                             <div class="triad-card">
                                 <div class="triad-color">
-                                    <img src=${allRecords[i].yellowImage} alt="" class="triad-color-image" onerror="this.src='../images/no-swatch-trio.svg';">
+                                    <img src=${allRecords[i].yellowImage} alt="" class="triad-color-image" onerror="this.src='../images-default/no-swatch-trio.svg';">
                                     <div class="triad-color-text-container">
                                         <p class="triad-color-name">${allRecords[i].yellowName || ''}</p>
                                     </div>
                                 </div>
                                 <div class="triad-color">
-                                    <img src=${allRecords[i].redImage} alt="" class="triad-color-image" onerror="this.src='../images/no-swatch-trio.svg';">
+                                    <img src=${allRecords[i].redImage} alt="" class="triad-color-image" onerror="this.src='../images-default/no-swatch-trio.svg';">
                                     <div class="triad-color-text-container">
                                         <p class="triad-color-name">${allRecords[i].redName || ''}</p>
                                     </div>
                                 </div>
                                 <div class="triad-color">
-                                    <img src=${allRecords[i].blueImage} alt="" class="triad-color-image" onerror="this.src='../images/no-swatch-trio.svg';">
+                                    <img src=${allRecords[i].blueImage} alt="" class="triad-color-image" onerror="this.src='../images-default/no-swatch-trio.svg';">
                                     <div class="triad-color-text-container">
                                         <p class="triad-color-name">${allRecords[i].blueName || ''}</p>
                                     </div>

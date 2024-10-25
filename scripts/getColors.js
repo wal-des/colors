@@ -48,7 +48,7 @@ async function getColorData() {
 
                 document.querySelector("#color-list").innerHTML += `
                 <div class="swatch-card" id="${allRecords[i].id}" tabindex="0" onclick="openDetails()">
-                <img src=${allRecords[i].swatchImage || ''} alt="" class="color-image" onerror="this.src='../images/no-color-pigment.svg';">
+                <img src=${allRecords[i].swatchImage || ''} alt="" class="color-image" onerror="this.src='../images-default/no-color-pigment.svg';">
                 <div class="card-text">
                     <div class="card-header-row">
                         <h2 class="color-name">${allRecords[i].colorName || ''}</h2>

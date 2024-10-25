@@ -42,17 +42,17 @@ async function getScales() {
                 console.log("Scale " + i);
                 document.querySelector("#scale-list").innerHTML += `
                         <div class="scale-outer-card">
-                            <img src=${allRecords[i].scaleImage} alt="" class="scale-image" onerror="this.src='../images/no-scale.svg';">
+                            <img src=${allRecords[i].scaleImage} alt="" class="scale-image" onerror="this.src='../images-default/no-scale.svg';">
                             <div class="scale-card">
                                 <div class="scale-color">
-                                    <img src=${allRecords[i].startColorImage} alt="" class="scale-color-image" onerror="this.src='../images/no-swatch-duo.svg';">
+                                    <img src=${allRecords[i].startColorImage} alt="" class="scale-color-image" onerror="this.src='../images-default/no-swatch-duo.svg';">
                                     <div class="scale-color-text-container">
                                         <p class="scale-color-name">${allRecords[i].startColorName || ''}</p>
 
                                     </div>
                                 </div>
                                 <div class="scale-color">
-                                    <img src=${allRecords[i].endColorImage} alt="" class="scale-color-image" onerror="this.src='../images/no-swatch-duo.svg';">
+                                    <img src=${allRecords[i].endColorImage} alt="" class="scale-color-image" onerror="this.src='../images-default/no-swatch-duo.svg';">
                                     <div class="scale-color-text-container">
                                         <p class="scale-color-name">${allRecords[i].endColorName || ''}</p>
                                     </div>

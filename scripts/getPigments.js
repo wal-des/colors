@@ -40,7 +40,7 @@
                         console.log("Pigment " + i);
                         document.querySelector("#pigment-list").innerHTML += `
                         <div class="swatch-card">
-                            <img src=${allRecords[i].swatchImage} alt="" class="pigment-image" onerror="this.src='../images/no-color-pigment.svg';">
+                            <img src=${allRecords[i].swatchImage} alt="" class="pigment-image" onerror="this.src='../images-default/no-color-pigment.svg';">
                                 <div class="card-text">
                                     <div class="pigment-card-text-column">
                                         <h2 class="color-name">${allRecords[i].pigmentName || ''}</h2>
