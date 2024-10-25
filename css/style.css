@@ -210,6 +210,7 @@ h2:has(+ p) {
   display: flex;
   flex-direction: row;
   height: 100%;
+  border-top: 1px solid var(--clr-bg);
 }
 
 .card-text {
@@ -252,90 +253,94 @@ h2:has(+ p) {
 
 /* Opacity */
 .pigment-opacity {
-  background-image: url(../icons/ratings/opacity-multiple.svg);
+  background-image: url("../icons/ratings/opacity/opacity-multiple.svg");
 }
 
 .transparent {
-  background-image: url("../icons/ratings/opacity-transparent.svg");
+  background-image: url("../icons/ratings/opacity/opacity-transparent.svg");
 }
 
 .semi-transparent {
-  background-image: url("../icons/ratings/opacity-semi-transparent.svg");
+  background-image: url("../icons/ratings/opacity/opacity-semi-transparent.svg");
 }
 
 .semi-opaque {
-  background-image: url("../icons/ratings/opacity-semi-opaque.svg");
+  background-image: url("../icons/ratings/opacity/opacity-semi-opaque.svg");
 }
 
 .opaque {
-  background-image: url("../icons/ratings/opacity-opaque.svg");
+  background-image: url("../icons/ratings/opacity/opacity-opaque.svg");
 }
 
 /* Staining */
 .non-staining {
-  background-image: url("../icons/ratings/staining-none.svg");
+  background-image: url("../icons/ratings/staining/staining-none.svg");
 }
 
 .low-staining {
-  background-image: url("../icons/ratings/staining-low.svg");
+  background-image: url("../icons/ratings/staining/staining-low.svg");
 }
 
 .medium-staining {
-  background-image: url("../icons/ratings/staining-medium.svg");
+  background-image: url("../icons/ratings/staining/staining-medium.svg");
 }
 .high-staining {
-  background-image: url("../icons/ratings/staining-high.svg");
+  background-image: url("../icons/ratings/staining/staining-high.svg");
 }
 
 /* Granulation */
 .no.granulation {
-  background-image: url("../icons/ratings/granulation-none.svg");
+  background-image: url("../icons/ratings/granulation/granulation-none.svg");
 }
 
 .medium.granulation {
-  background-image: url("../icons/ratings/granulation-medium.svg");
+  background-image: url("../icons/ratings/granulation/granulation-medium.svg");
 }
 
 .heavy.granulation {
-  background-image: url("../icons/ratings/granulation-high.svg");
+  background-image: url("../icons/ratings/granulation/granulation-high.svg");
 }
 
 /* Lightfastness */
 .fugitive.lightfastness {
-  background-image: url("../icons/ratings/lightfastness-fugitive.svg");
+  background-image: url("../icons/ratings/lightfastness/lightfastness-fugitive.svg");
 }
 
 .fair.lightfastness {
-  background-image: url("../icons/ratings/lightfastness-fair.svg");
+  background-image: url("../icons/ratings/lightfastness/lightfastness-fair.svg");
 }
 
 .good.lightfastness {
-  background-image: url("../icons/ratings/lightfastness-good.svg");
+  background-image: url("../icons/ratings/lightfastness/lightfastness-good.svg");
 }
 
 .very.good.lightfastness {
-  background-image: url("../icons/ratings/lightfastness-very-good.svg");
+  background-image: url("../icons/ratings/lightfastness/lightfastness-very-good.svg");
 }
 
 .excellent.lightfastness {
-  background-image: url("../icons/ratings/lightfastness-excellent.svg");
+  background-image: url("../icons/ratings/lightfastness/lightfastness-excellent.svg");
 }
 
 /* toxicicity */
 .a {
-  background-image: url(../icons/ratings/a-low-hazard.svg);
+  background-image: url("../icons/ratings/hazard/a-low-hazard.svg");
 }
 
 .b {
-  background-image: url(../icons/ratings/b-possible-hazard.svg);
+  background-image: url("../icons/ratings/hazard/b-possible-hazard.svg");
 }
 
 .c {
-  background-image: url(../icons/ratings/c-hazardous.svg);
+  background-image: url("../icons/ratings/hazard/c-hazardous.svg");
 }
 
 .d {
-  background-image: url(../icons/ratings/d-extremely-toxic.svg);
+  background-image: url("../icons/ratings/hazard/d-extremely-toxic.svg");
+}
+
+.u {
+  background-image: url("../icons/ratings/hazard/u-unknown-hazard.svg");
 }
 
 /* Obsolete */
@@ -375,7 +380,6 @@ h2:has(+ p) {
   height: var(--space-xl);
   width: 100%;
   object-fit: fill;
-  border-bottom: solid 2px var(--clr-bg);
 }
 
 .triad-image {
@@ -393,7 +397,7 @@ h2:has(+ p) {
 
 .triad-color:not(:last-child),
 .scale-color:not(:last-child) {
-  border-right: solid 2px var(--clr-bg);
+  border-right: solid 1px var(--clr-bg);
 }
 
 .triad-color-text-container,
