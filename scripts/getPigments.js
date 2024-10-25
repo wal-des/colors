@@ -2,12 +2,14 @@
         const viewName = 'Pigment list';
 
         async function getPigments() {
+            console.log("Start fetch pigments");
             const url = `https://api.airtable.com/v0/${baseId}/${tableName}?view=${viewName}&offset=${offset}`;
             try {
                 const response = await fetch(url, {
                     headers: {
                         Authorization: apiKey
                     }
+                    
                 });
                 const data = await response.json();
                 const records = data.records.map(record => {
@@ -21,23 +23,24 @@
                         toxicicity: fields['Toxicicity'],
                         toxicicityNote: fields['Toxicity note'],
                         opacity: fields.Transparency,
-                        swatchImage: fields.Swatch[0].url,
+                        swatchImage: fields.Swatch?.[0].url,
                         usedIn: fields['Used in'],
                         usedInMaterial: fields['Used in Material'],
                     };
                     return mappedData;
                 });
-                allRecords = allRecords.concat(records);
+
+                allRecords = allRecords.concat(records).sort((a, b) => a.sortOrder - b.sortOrder);
                 // allRecords = allRecords.concat(records).sort((a, b) => (a.colorCategory + a.pigmentCode > b.colorCategory + b.pigmentCode) ? 1 : ((b.colorCategory + b.pigmentCode > a.colorCategory + a.pigmentCode) ? -1 : 0));
                 if (data.offset) {
                     offset = data.offset;
                     await getPigments();
                 } else {
                     for (var i = 0; i < allRecords.length; i++) {
-
-                        document.querySelector("#swatch-list").innerHTML += `
+                        console.log("Pigment " + i);
+                        document.querySelector("#pigment-list").innerHTML += `
                         <div class="swatch-card">
-                            <img src=${allRecords[i].swatchImage} alt="" class="pigment-image">
+                            <img src=${allRecords[i].swatchImage} alt="" class="pigment-image" onerror="this.src='../images/no-color-pigment.svg';">
                                 <div class="card-text">
                                     <div class="pigment-card-text-column">
                                         <h2 class="color-name">${allRecords[i].pigmentName || ''}</h2>
@@ -56,6 +59,7 @@
                                 </div>
                         </div>`;
                     }
+                    console.log("Finish fetch pigments");
                 }
             } catch (error) {
 

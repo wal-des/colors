@@ -18,19 +18,19 @@ async function getSchemes() {
                 yellowOption: fields['Yellow option'],
                 yellowName: fields['Yellow Display Name'],
                 yellowPigment: fields['Yellow Pigments'],
-                yellowImage: fields['Yellow Swatch'][0].url,
+                yellowImage: fields['Yellow Swatch']?.[0].url,
 
                 redOption: fields['Red option'],
                 redName: fields['Red Display Name'],
                 redPigment: fields['Red Pigments'],
-                redImage: fields['Red Swatch'][0].url,
+                redImage: fields['Red Swatch']?.[0].url,
 
                 blueOption: fields['Blue option'],
                 blueName: fields['Blue Display Name'],
                 bluePigment: fields['Blue Pigments'],
-                blueImage: fields['Blue Swatch'][0].url,
+                blueImage: fields['Blue Swatch']?.[0].url,
 
-                triadImage: fields['TriadImage'][0].url,
+                triadImage: fields['TriadImage']?.[0].url,
 
             };
             return mappedData;
@@ -45,22 +45,22 @@ async function getSchemes() {
 
                 document.querySelector("#triad-list").innerHTML += `
                         <div class="triad-outer-card">
-                            <img src=${allRecords[i].triadImage} alt="" class="triad-image">
+                            <img src=${allRecords[i].triadImage} alt="" class="triad-image" onerror="this.src='../images/no-scheme.svg';">
                             <div class="triad-card">
                                 <div class="triad-color">
-                                    <img src=${allRecords[i].yellowImage} alt="" class="triad-color-image">
+                                    <img src=${allRecords[i].yellowImage} alt="" class="triad-color-image" onerror="this.src='../images/no-swatch-trio.svg';">
                                     <div class="triad-color-text-container">
                                         <p class="triad-color-name">${allRecords[i].yellowName || ''}</p>
                                     </div>
                                 </div>
                                 <div class="triad-color">
-                                    <img src=${allRecords[i].redImage} alt="" class="triad-color-image">
+                                    <img src=${allRecords[i].redImage} alt="" class="triad-color-image" onerror="this.src='../images/no-swatch-trio.svg';">
                                     <div class="triad-color-text-container">
                                         <p class="triad-color-name">${allRecords[i].redName || ''}</p>
                                     </div>
                                 </div>
                                 <div class="triad-color">
-                                    <img src=${allRecords[i].blueImage} alt="" class="triad-color-image">
+                                    <img src=${allRecords[i].blueImage} alt="" class="triad-color-image" onerror="this.src='../images/no-swatch-trio.svg';">
                                     <div class="triad-color-text-container">
                                         <p class="triad-color-name">${allRecords[i].blueName || ''}</p>
                                     </div>

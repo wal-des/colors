@@ -33,8 +33,8 @@ async function getColorData() {
                 staining: fields.Staining,
                 granulating: fields.Granulating,
                 granulation: fields.Granulation,
-                swatchImage: fields.Swatch[0].url,
                 obsolete: fields.Obsolete,
+                swatchImage: fields.Swatch?.[0].url,
             };
             return mappedData;
         });
@@ -46,9 +46,9 @@ async function getColorData() {
         } else {
             for (var i = 0; i < allRecords.length; i++) {
 
-                document.querySelector("#swatch-list").innerHTML += `
+                document.querySelector("#color-list").innerHTML += `
                 <div class="swatch-card" id="${allRecords[i].id}" tabindex="0" onclick="openDetails()">
-                <img src=${allRecords[i].swatchImage} alt="" class="color-image">
+                <img src=${allRecords[i].swatchImage || ''} alt="" class="color-image" onerror="this.src='../images/no-color-pigment.svg';">
                 <div class="card-text">
                     <div class="card-header-row">
                         <h2 class="color-name">${allRecords[i].colorName || ''}</h2>
@@ -62,6 +62,10 @@ async function getColorData() {
                         <p class="color-information-tag">${allRecords[i].pigments || ''}</p>
                     </div>
                     <div class="color-information-list">
+                        <div class="color-information-item" id="lightfastness">
+                            <i class="color-information-icon ${allRecords[i].lightfastness || ''}"></i>
+                            <p class="color-information-tag">${allRecords[i].lightfastness || ''}</p>
+                        </div>
                         <div class="color-information-item" id="opacity">
                             <i class="color-information-icon ${allRecords[i].opacity || ''}"></i>
                             <p class="color-information-tag">${allRecords[i].opacity || ''}</p>
@@ -74,10 +78,7 @@ async function getColorData() {
                             <i class="color-information-icon ${allRecords[i].granulation || ''}"></i>
                             <p class="color-information-tag">${allRecords[i].granulation || ''}</p>
                         </div>
-                        <div class="color-information-item" id="lightfastness">
-                            <i class="color-information-icon ${allRecords[i].lightfastness || ''}"></i>
-                            <p class="color-information-tag">${allRecords[i].lightfastness || ''}</p>
-                        </div>
+
                     </div>
                     <div class="color-information-item obsolete" id="obsolete">
                         <i class="color-information-icon ${allRecords[i].obsolete || ''}"></i>
