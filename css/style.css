@@ -251,10 +251,6 @@ h2:has(+ p) {
   margin-right: var(--space-3xs);
 }
 
-#colorDetails {
-  display: none;
-}
-
 /* Opacity */
 .pigment-opacity {
   background-image: url("../icons/ratings/opacity/opacity-multiple.svg");
