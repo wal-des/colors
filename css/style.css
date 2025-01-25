@@ -100,7 +100,7 @@ body {
 
 section {
   margin: var(--space-s);
-  padding-top: var(--space-l);
+  /* padding-top: var(--space-l); */
 }
 
 .color-content {
@@ -232,7 +232,7 @@ h2:has(+ p) {
 
 .color-information-list {
   margin-top: var(--space-xs);
-  display: inline-block;
+  display: none;
 }
 
 .color-information-item {
@@ -249,6 +249,10 @@ h2:has(+ p) {
   height: 24px;
   width: 24px;
   margin-right: var(--space-3xs);
+}
+
+#colorDetails {
+  display: none;
 }
 
 /* Opacity */
@@ -371,7 +375,7 @@ h2:has(+ p) {
 
 .triad-color-image,
 .scale-color-image {
-  height: var(--space-2xl);
+  height: var(--space-l);
   object-fit: cover;
   width: 100%;
 }
@@ -572,4 +576,8 @@ h2:has(+ p) {
     top: var(--space-m);
     right: var(--space-l);
   }
+}
+
+.hidden {
+  display: none;
 }
