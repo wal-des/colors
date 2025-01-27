@@ -6,6 +6,7 @@
   --clr-bg-nav: #16172f;
   --clr-bg-card: #454559;
   --clr-accent: #1ceac5;
+  --clr-modal-rgb: 22, 23, 47; /*Same as bg, used for backdrop*/
 
   /*text colors*/
   --clr-text-primary: #ececee;
@@ -28,6 +29,7 @@
   --shadow-card: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.15);
   --shadow-menu-upper: 0 -4px 20px rgba(28, 234, 195, 0.15);
   --shadow-menu: 0 4px 20px rgba(28, 234, 195, 0.15);
+  --modal-alpha: 0.3;
 
   --fs-sm: clamp(0.8333rem, 0.8303rem + 0.0152vw, 0.844rem);
   --fs-md: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
@@ -46,6 +48,7 @@
   --space-4xl: clamp(10rem, calc(9.38rem + 3.13vw), 12.5rem);
 
   /*negative spaces*/
+  --space-m-neg: clamp(-1.5rem, calc(-1.41rem - 0.47vw), -1.88rem);
   --space-l-neg: clamp(-2rem, calc(-1.88rem - 0.63vw), -2.5rem);
   --space-xl-neg: clamp(-3rem, calc(-2.81rem - 0.94vw), -3.75rem);
 
@@ -134,6 +137,10 @@ h1 {
   margin-bottom: var(--space-l);
 }
 
+.modal h1 {
+  margin-bottom: 0;
+}
+
 .mobile-header > h1 {
   margin-bottom: 0;
 }
@@ -168,7 +175,59 @@ h2:has(+ p) {
   word-break: keep-all;
 }
 
+/* Button*/
+button {
+  font-family: var(--ff-header);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  line-height: 120%;
+  min-width: 150px;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  opacity: 1;
+  padding: var(--space-2xs) var(--space-l);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--clr-accent);
+  color: var(--clr-text-tag);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  opacity: 0.85;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--clr-accent);
+  color: var(--clr-accent);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--clr-accent);
+  color: var(--clr-text-tag);
+  opacity: 0.85;
+}
+
+.btn-secondary:active {
+  background-color: var(--clr-accent);
+  color: var(--clr-text-tag);
+}
+
 /* Cards content and layout */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* The list item for color card */
+.color-item {
+}
+
 .swatch-list,
 .triad-list,
 .scale-list,
@@ -185,7 +244,8 @@ h2:has(+ p) {
 
 .swatch-card,
 .triad-outer-card,
-.scale-outer-card {
+.scale-outer-card,
+.color-item {
   background-color: var(--clr-bg-card);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
@@ -217,6 +277,10 @@ h2:has(+ p) {
   padding: var(--space-s);
 }
 
+.modal .card-text {
+  padding: var(--space-m);
+}
+
 .card-header-row {
   display: flex;
   align-items: baseline;
@@ -232,6 +296,18 @@ h2:has(+ p) {
 
 .color-information-list {
   margin-top: var(--space-xs);
+  display: block;
+}
+
+.modal .color-information-list {
+  background-color: var(--clr-bg-card);
+  padding: var(--space-xs);
+  border-radius: var(--radius-card);
+  display: block;
+  width: 100%;
+}
+
+.color-information-list:has(.color-information-item:empty) {
   display: none;
 }
 
@@ -322,6 +398,10 @@ h2:has(+ p) {
   background-image: url("../icons/ratings/lightfastness/lightfastness-excellent.svg");
 }
 
+.no.lightfastness.rating {
+  background-image: url("../icons/ratings/hazard/u-unknown-hazard.svg");
+}
+
 /* toxicicity */
 .a {
   background-image: url("../icons/ratings/hazard/a-low-hazard.svg");
@@ -367,6 +447,13 @@ h2:has(+ p) {
   height: var(--space-4xl);
   object-fit: cover;
   width: 100%;
+}
+
+.color-image-modal {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-card);
 }
 
 .triad-color-image,
@@ -416,6 +503,84 @@ h2:has(+ p) {
   overflow: hidden;
 }
 
+/* modal */
+
+/* The popup modal - hidden by default */
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0 0 0 / 40%);
+  background-color: rgba(var(--clr-modal-rgb), var(--modal-alpha));
+  backdrop-filter: blur(12px);
+  background-size: cover;
+  display: none;
+  opacity: 0;
+  /* translate: 0 25vh; */
+  transition-property: overlay display opacity;
+  transition-duration: 0.5s;
+  transition-behavior: allow-discrete;
+}
+
+/* This class is added to the modal when a card is clicked */
+.modalOpen {
+  display: block;
+  opacity: 1;
+  /* translate: 0 0; */
+
+  @starting-style {
+    opacity: 0;
+    /* translate: 0 -25vh; */
+  }
+}
+
+/* This is the box that holds the quote in the modal */
+.modal-container {
+  width: 90%;
+  max-width: 650px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  /* gap: var(--space-s); */
+  background-color: var(--clr-bg);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.modal-content {
+  padding: var(--space-m);
+  overflow: scroll;
+}
+
+.button-container {
+  background-color: var(--clr-bg-nav);
+  padding: var(--space-m);
+  padding-top: var(--space-s);
+  /* margin-left: var(--space-l-neg);
+  margin-right: var(--space-l-neg); */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 1rem; */
+  bottom: 0;
+  align-self: flex-end;
+  box-shadow: var(--shadow-menu-upper);
+}
+
+.details-section {
+  margin-top: var(--space-m);
+}
+
 /* Nav bar header */
 #header {
   display: flex;
@@ -425,7 +590,7 @@ h2:has(+ p) {
   padding: var(--space-m) var(--space-l);
   background: var(--clr-bg-nav);
   box-shadow: var(--shadow-menu);
-  z-index: 999;
+  z-index: 99;
   position: sticky;
   top: 0;
   left: 0;
