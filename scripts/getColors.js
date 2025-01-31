@@ -59,9 +59,6 @@ async function getColorData() {
                                     <p class="make-name">${allRecords[i].brand || ''}</p>
                                     <p class="product-line">${allRecords[i].productLine || ''}</p>
                                 </div>
-                                    <div class="card-text-row">
-                                    <p class="color-information-tag">${allRecords[i].pigments || ''}</p>
-                                </div>
                                 <div class="color-information-item obsolete" id="obsolete">
                                     <i class="color-information-icon ${allRecords[i].obsolete || ''}"></i>
                                     <p class="color-information-tag">${(allRecords[i].obsolete && "Not in collection anymore") || ''}</p>
